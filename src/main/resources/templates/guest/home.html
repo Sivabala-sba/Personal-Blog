@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Blog</h1>
+    <p>Your go-to place for the latest articles and stories.</p>
+</header>
+
+<main>
+    <section>
+        <h2>Recent Articles</h2>
+        <ul>
+            <!-- Loop through articles -->
+            <li th:each="article : ${articles}">
+                <h3>
+                    <a th:href="@{/article/{id}(id=${article.id})}" th:text="${article.title}">Article Title</a>
+                </h3>
+                <p th:text="${article.summary}">This is a summary of the article...</p>
+                <p>Published on <span th:text="${article.datePublished}">Date</span> by <span th:text="${article.author}">Author</span></p>
+                <hr>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <hr>
+    <p>&copy; 2024 Your Blog. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

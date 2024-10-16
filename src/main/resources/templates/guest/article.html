@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${article.title}">Article Title</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1 th:text="${article.title}">Article Title</h1>
+    <p>Published on <span th:text="${article.datePublished}">Date</span> by <span th:text="${article.author}">Author</span></p>
+</header>
+
+<main>
+    <article>
+        <section th:if="${article.summary}">
+            <h2>Summary</h2>
+            <p th:text="${article.summary}">This is the article summary...</p>
+        </section>
+
+        <section th:if="${article.content}">
+            <h2>Content</h2>
+            <div th:utext="${article.content}">This is the article content...</div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <hr>
+    <p>&copy; 2024 Your Blog. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
